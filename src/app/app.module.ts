@@ -17,6 +17,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { AppRoutingModule } from './app.routing';
 import { HomeComponent } from './home/home.component';
 
+import { QuestionService } from './shared/services/question.service'
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +38,9 @@ import { HomeComponent } from './home/home.component';
 	  MaterialModule.forRoot(),
 	  AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    QuestionService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

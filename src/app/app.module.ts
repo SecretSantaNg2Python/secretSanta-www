@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { MaterialModule } from '@angular/material';
+import 'hammerjs';
 
 import { AppComponent } from './app.component';
 import { DynamicFormComponent } from './dynamic-form/dynamic-form.component';
@@ -30,10 +31,10 @@ import { HomeComponent } from './home/home.component';
   imports: [
     BrowserModule,
     FormsModule,
-	ReactiveFormsModule,
+    ReactiveFormsModule,
     HttpModule,
-	MaterialModule.forRoot(),
-	AppRoutingModule
+	  MaterialModule.forRoot(),
+	  AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

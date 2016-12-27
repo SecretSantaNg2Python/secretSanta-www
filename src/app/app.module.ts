@@ -17,7 +17,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { AppRoutingModule } from './app.routing';
 import { HomeComponent } from './home/home.component';
 
-import { QuestionService } from './shared/services/question.service'
+import { QuestionService } from './shared/services/question.service';
+import { CommonService } from './shared/services/common.service';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { QuestionService } from './shared/services/question.service'
 	  AppRoutingModule
   ],
   providers: [
-    QuestionService
+    CommonService,
+    QuestionService,
   ],
   bootstrap: [AppComponent]
 })

@@ -5,11 +5,6 @@ import { Component } from '@angular/core';
   template: `
   <div>
   	<app-navbar></app-navbar>
-	<nav>
-	<a routerLink="/registration">Registration</a>
-	<a routerLink="/login">Login</a>
-	<a routerLink="/pageNotFound">Page Not Found</a>
-	</nav>
 	<router-outlet></router-outlet>
   </div>
 	`,

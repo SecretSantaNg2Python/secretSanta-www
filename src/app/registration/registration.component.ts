@@ -17,4 +17,9 @@ export class RegistrationComponent implements OnInit {
   ngOnInit() {
   }
 
+  onSubmitRegistrationForm(payload){
+    console.log('onSubmitRegistrationForm', payload)
+	//dispatch action to the store.
+  }
+
 }

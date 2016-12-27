@@ -1,22 +1,19 @@
 import { Component } from '@angular/core';
-import { QuestionService } from './shared/services/question.service';
 
 @Component({
   selector: 'app-root',
   template: `
   <div>
-	<h2>Registration</h2>
-	<dynamic-form [questions]="questions"></dynamic-form>
+  	<app-navbar></app-navbar>
+	<router-outlet></router-outlet>
   </div>
 	`,
   styleUrls: ['./app.component.css'],
-  providers:  [QuestionService]
+  providers:  []
 })
 export class AppComponent {
   title = 'app works!';
-  questions: any[];
 
-  constructor(service: QuestionService){
-	  this.questions = service.getRegistrationQuestions();
+  constructor(){
   }
 }

@@ -1,8 +1,9 @@
-<section>
-	<md-toolbar>
-		<h3>Login</h3>
-	</md-toolbar>
-	<md-card>
-	  <dynamic-form [questions]="questions"></dynamic-form>
-	</md-card>
-</section>
+<md-card>
+	<md-card-title>Login</md-card-title>
+	<md-card-content>
+		<dynamic-form 
+			[questions]="questions"
+			(onSubmit)="onSubmitLoginForm($event)"
+		></dynamic-form>
+	</md-card-content>
+</md-card>

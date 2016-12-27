@@ -1,12 +1,18 @@
-<md-toolbar>
-	<span><h2>SSApp</h2></span>
+<md-toolbar color="primary">
+	<a [routerLink]="['/']" md-button>SSApp</a>
 
   <!-- This fills the remaining space of the current row -->
-  	<span class="fill-remaining-space"></span>
-		<img src="/assets/img/funnySanta.jpg" width="50px" height="20px">
-  	<span>
-	<button md-raised-button routerLink="/registration" color="accent">Registration</button>
-	<button md-raised-button routerLink="/login" color="accent">Login</button>
-	</span>
-
+  <span class="fill-remaining-space"></span>
+	<a 
+		md-raised-button 
+		[routerLink]="['/registration']"
+		color="accent"
+		class="navBtn"
+	>Registration</a>
+	<a 
+		md-raised-button 
+		[routerLink]="['/login']" 
+		color="accent"
+		class="navBtn"
+		>Login</a>
 </md-toolbar>

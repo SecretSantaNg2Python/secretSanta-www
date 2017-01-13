@@ -19,7 +19,7 @@ export const sessionReducer: ActionReducer<Session> = (state: Session = defaultS
 	console.log('action', type, payload);
 	switch(type){
 		case SESSION_ACTIONS.REGISTER_USER.SUCCESS:
-			return Object.assign({}, state, {account: payload})
+			return Object.assign({}, state, payload)
 		default:
 			return state;
 	}

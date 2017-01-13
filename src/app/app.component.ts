@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +14,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app works!';
+  session;
 
-  constructor(){
+  constructor(private _store: Store<any>){
+    _store.select('session').subscribe(session => this.session = session);
   }
 }

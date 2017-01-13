@@ -5,6 +5,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { MaterialModule } from '@angular/material';
 import 'hammerjs';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { StoreModule } from '@ngrx/store';
 
 import { AppComponent } from './app.component';
 import { DynamicFormComponent } from './dynamic-form/dynamic-form.component';
@@ -20,6 +22,8 @@ import { HomeComponent } from './home/home.component';
 import { QuestionService } from './shared/services/question.service';
 import { CommonService } from './shared/services/common.service';
 
+import { sessionReducer } from './shared/reducers/session.reducer';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,6 +36,10 @@ import { CommonService } from './shared/services/common.service';
     HomeComponent
   ],
   imports: [
+    StoreModule.provideStore({
+      session: sessionReducer
+    }),
+    StoreDevtoolsModule.instrumentOnlyWithExtension(),
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,

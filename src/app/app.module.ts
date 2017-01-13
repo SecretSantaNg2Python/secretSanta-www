@@ -35,6 +35,7 @@ import { CommonService } from './shared/services/common.service';
 import { SessionService } from './shared/services/session.service';
 
 // reducers
+import { errorReducer } from './shared/reducers/error.reducer'
 import { sessionReducer } from './shared/reducers/session.reducer';
 
 // effects
@@ -54,6 +55,7 @@ import { SessionEffects } from './shared/effects/session.effects';
   imports: [
     EffectsModule.run(SessionEffects),
     StoreModule.provideStore({
+      error: errorReducer,
       session: sessionReducer
     }),
     StoreDevtoolsModule.instrumentOnlyWithExtension(),

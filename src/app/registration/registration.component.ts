@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Router } from '@angular/router';
+
 import { QuestionService } from '../shared/services/question.service';
+import { SESSION_ACTIONS } from '../shared/reducers/session.reducer';
 
 @Component({
   selector: 'app-registration',
@@ -9,7 +13,11 @@ import { QuestionService } from '../shared/services/question.service';
 export class RegistrationComponent implements OnInit {
   questions: any[];
 
-  constructor(questionService: QuestionService) {
+  constructor(
+    private questionService: QuestionService, 
+    private _store: Store<any>,
+    private router: Router
+  ) {
 	  this.questions = questionService.getRegistrationQuestions();
   }
 
@@ -18,7 +26,11 @@ export class RegistrationComponent implements OnInit {
 
   onSubmitRegistrationForm(payload){
     console.log('onSubmitRegistrationForm', payload)
-	//dispatch action to the store.
+    this._store.dispatch({
+      type: SESSION_ACTIONS.REGISTER_USER.SUCCESS,
+      payload: payload
+    });
+    setTimeout(() => this.router.navigate(['/']), 2000);
   }
 
 }

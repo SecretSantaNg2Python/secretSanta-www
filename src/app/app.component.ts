@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 
+import { Session } from './shared/models/session.interface';
+
 @Component({
   selector: 'app-root',
   template: `
-    <app-navbar></app-navbar>
+    <app-navbar [user]="user"></app-navbar>
     <div>
       <router-outlet></router-outlet>
     </div>
@@ -14,9 +16,9 @@ import { Store } from '@ngrx/store';
 })
 export class AppComponent {
   title = 'app works!';
-  session;
+  user;
 
   constructor(private _store: Store<any>){
-    _store.select('session').subscribe(session => this.session = session);
+    _store.select('session').subscribe((session: Session) => this.user = session.user);
   }
 }

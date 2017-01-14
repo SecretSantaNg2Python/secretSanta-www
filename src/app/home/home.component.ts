@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+
+import { Session } from '../shared/models/session.interface';
 
 @Component({
   selector: 'app-home',
@@ -6,8 +9,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  user;
 
-  constructor() { }
+  constructor(private _store: Store<any>) {
+    _store.select('session').subscribe((session: Session) => this.user = session.user);
+  }
 
   ngOnInit() {
   }

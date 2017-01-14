@@ -4,9 +4,9 @@ import { Session } from '../models/session.interface';
 
 export const SESSION_ACTIONS = {
 	REGISTER_USER: {
-		ATTEMPT: 'SESSION_GET_USER_ATTEMPT',
-		FAILURE: 'SESSION_GET_USER_FAILURE',
-		SUCCESS: 'SESSION_GET_USER_SUCCESS'
+		ATTEMPT: 'SESSION_REGISTER_USER_ATTEMPT',
+		FAILURE: 'SESSION_REGISTER_USER_FAILURE',
+		SUCCESS: 'SESSION_REGISTER_USER_SUCCESS'
 	}
 }
 
@@ -24,3 +24,5 @@ export const sessionReducer: ActionReducer<Session> = (state: Session = defaultS
 			return state;
 	}
 }
+
+// todo: payload comes back undefined

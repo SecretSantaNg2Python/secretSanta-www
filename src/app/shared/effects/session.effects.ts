@@ -15,6 +15,11 @@ export class SessionEffects {
 		private actions$: Actions,
 	){}
 
+	@Effect() loginUser$ = this.actions$
+		.ofType(SESSION_ACTIONS.LOGIN_USER.ATTEMPT)
+		.map(action => action.payload)
+		.switchMap(payload => this.sessionService.loginUser(payload));
+
 	@Effect() registerUser$ = this.actions$
 		.ofType(SESSION_ACTIONS.REGISTER_USER.ATTEMPT)
 		.map(action => action.payload)

@@ -27,6 +27,6 @@
 
 	<md-menu #menu="mdMenu">
 		<button md-menu-item> Settings </button>
-		<button md-menu-item> Sign Out </button>
+		<button md-menu-item (click)="onSignOut.emit()"> Sign Out </button>
 	</md-menu>
 </md-toolbar>

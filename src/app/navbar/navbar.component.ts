@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'app-navbar',
@@ -8,6 +8,7 @@ import { Component, OnInit, Input, ChangeDetectionStrategy } from '@angular/core
 })
 export class NavbarComponent implements OnInit {
   @Input() user;
+  @Output() onSignOut = new EventEmitter();
 
   constructor() {
   }

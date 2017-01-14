@@ -6,7 +6,7 @@ import { Session } from './shared/models/session.interface';
 @Component({
   selector: 'app-root',
   template: `
-    <app-navbar [user]="user"></app-navbar>
+    <app-navbar [user]="user" (onSignOut)="onSignOut($event)"></app-navbar>
     <div>
       <router-outlet></router-outlet>
     </div>
@@ -20,5 +20,9 @@ export class AppComponent {
 
   constructor(private _store: Store<any>){
     _store.select('session').subscribe((session: Session) => this.user = session.user);
+  }
+
+  onSignOut(){
+    console.log('sign out');
   }
 }

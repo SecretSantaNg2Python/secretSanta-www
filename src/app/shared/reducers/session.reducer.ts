@@ -24,8 +24,10 @@ export const sessionReducer: ActionReducer<Session> = (state: Session = defaultS
 	console.log('action', type, payload);
 	switch(type){
 		case SESSION_ACTIONS.LOGIN_USER.SUCCESS:
+			localStorage.setItem('Authorization', payload.token);
 			return Object.assign({}, state, payload)
 		case SESSION_ACTIONS.REGISTER_USER.SUCCESS:
+			localStorage.setItem('Authorization', payload.token);
 			return Object.assign({}, state, payload)
 		default:
 			return state;

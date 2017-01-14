@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { FormGroup }        from '@angular/forms';
-import { QuestionBase }     from '../shared/models/question.model';
+import { QuestionBase }     from '../shared/question-base';
 
 @Component({
   selector: 'df-question',

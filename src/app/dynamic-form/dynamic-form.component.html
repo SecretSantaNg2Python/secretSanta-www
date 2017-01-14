@@ -4,10 +4,7 @@
       <df-question [question]="question" [form]="form"></df-question>
     </div>
     <div class="form-row">
-      <button md-raised-button type="submit" [disabled]="!form.valid">Save</button>
+      <button md-raised-button type="submit" [disabled]="!form.valid">submit</button>
     </div>
   </form>
-  <div *ngIf="payLoad" class="form-row">
-    <strong>Saved the following values</strong><br>{{payLoad}}
-  </div>
 </div>

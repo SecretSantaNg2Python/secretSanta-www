@@ -24,5 +24,3 @@ export const sessionReducer: ActionReducer<Session> = (state: Session = defaultS
 			return state;
 	}
 }
-
-// todo: payload comes back undefined

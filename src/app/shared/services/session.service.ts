@@ -9,13 +9,15 @@ export class SessionService {
   constructor(private commonService: CommonService) { }
 
   registerUser(payload){
-    return this.commonService.post(
-      'users', 
-      payload, 
-      false, 
-      SESSION_ACTIONS.REGISTER_USER.SUCCESS,
-      'account',
-      'ERROR.SESSION_ACTIONS')
+    let postParams = {
+      uri: 'users', 
+      payload: payload, 
+      auth: false, 
+      succesActionType: SESSION_ACTIONS.REGISTER_USER.SUCCESS,
+      responseObject: 'account',
+      errorActionType: SESSION_ACTIONS.REGISTER_USER.FAILURE
+    }
+    return this.commonService.post(postParams)
   }
 
 }

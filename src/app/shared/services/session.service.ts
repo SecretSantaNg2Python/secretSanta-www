@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 
-import { CommonService } from './common.service';
+import { HttpWrapperService } from './common.service';
 import { SESSION_ACTIONS } from '../reducers/session.reducer';
-import { GetParams, PostParams } from '../models/httpParams.interface';
+import { HttpParams } from '../models/httpParams.interface';
 
 @Injectable()
 export class SessionService {
 
-  constructor(private commonService: CommonService) {}
+  constructor(private httpWrapperService: HttpWrapperService) {}
 
   getUser(payload){
     // need a get User endpoint that checks the token
@@ -17,27 +17,27 @@ export class SessionService {
   }
 
   loginUser(payload: {email: string, password: string}){
-    let postParams: PostParams = {
-      uri: 'user',
-      payload: payload,
+    let postParams: HttpParams = {
       auth: false,
-      succesActionType: SESSION_ACTIONS.LOGIN_USER.SUCCESS,
+      errorActionType: SESSION_ACTIONS.LOGIN_USER.FAILURE,
+      payload: payload,
       responseObject: 'account',
-      errorActionType: SESSION_ACTIONS.LOGIN_USER.FAILURE
+      successActionType: SESSION_ACTIONS.LOGIN_USER.SUCCESS,
+      uri: 'user'
     }
-    return this.commonService.post(postParams);
+    return this.httpWrapperService.post(postParams);
   }
 
   registerUser(payload: {username: string, email: string, password: string, verify_password: string}){
-    let postParams: PostParams = {
-      uri: 'users', 
-      payload: payload, 
-      auth: false, 
-      succesActionType: SESSION_ACTIONS.REGISTER_USER.SUCCESS,
+    let postParams: HttpParams = {
+      auth: false,
+      errorActionType: SESSION_ACTIONS.REGISTER_USER.FAILURE,
+      payload: payload,
       responseObject: 'account',
-      errorActionType: SESSION_ACTIONS.REGISTER_USER.FAILURE
+      successActionType: SESSION_ACTIONS.REGISTER_USER.SUCCESS,
+      uri: 'users'
     }
-    return this.commonService.post(postParams)
+    return this.httpWrapperService.post(postParams)
   }
 
 }

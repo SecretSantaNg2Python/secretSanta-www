@@ -38,7 +38,7 @@ export class HttpWrapperService {
     return this.http.delete(apiUrl, options)
       .map(res => ({
         type: params.successActionType,
-        payload: res.json()
+        payload: res.json()[params.responseObject]
       }))
       .catch(res => Observable.of({
         type: ERROR_ACTIONS.REPORT_ERROR,
@@ -55,7 +55,7 @@ export class HttpWrapperService {
     return this.http.get(apiUrl, options)
       .map(res => ({
         type: params.successActionType,
-        payload: res.json().categories
+        payload: res.json()[params.responseObject]
       }))
       .catch(res => Observable.of({
         type: ERROR_ACTIONS.REPORT_ERROR,

@@ -9,11 +9,15 @@ export class SessionService {
 
   constructor(private httpWrapperService: HttpWrapperService) {}
 
-  getUser(payload){
-    // need a get User endpoint that checks the token
-    // let getParams: GetParams = {
-
-    // }
+  getUser(){
+    let getParams: HttpParams = {
+      auth: true,
+      errorActionType: SESSION_ACTIONS.GET_USER.FAILURE,
+      responseObject: 'user',
+      successActionType: SESSION_ACTIONS.GET_USER.SUCCESS,
+      uri: 'user'
+    }
+    return this.httpWrapperService.get(getParams);
   }
 
   loginUser(payload: {email: string, password: string}){

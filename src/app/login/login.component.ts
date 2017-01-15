@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { QuestionService } from '../shared/services/question.service';
+import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
 
+import { QuestionService } from '../shared/services/question.service';
+import { SESSION_ACTIONS } from '../shared/reducers/session.reducer';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -9,7 +12,11 @@ import { QuestionService } from '../shared/services/question.service';
 export class LoginComponent implements OnInit {
   questions: any[];
 
-  constructor(questionService: QuestionService) {
+  constructor(
+    private questionService: QuestionService,
+    private _store: Store<any>,
+    private router: Router
+  ) {
 	  this.questions = questionService.getLoginQuestions();
   }
 
@@ -17,7 +24,11 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmitLoginForm(payload){
-    console.log('login form', payload)
+    this._store.dispatch({
+      type: SESSION_ACTIONS.LOGIN_USER.ATTEMPT,
+      payload: payload
+    })
+    setTimeout(() => this.router.navigate(['/']), 2000);
   }
 
 }

@@ -25,7 +25,6 @@ export class RegistrationComponent implements OnInit {
   }
 
   onSubmitRegistrationForm(payload){
-    console.log('onSubmitRegistrationForm', payload)
     this._store.dispatch({
       type: SESSION_ACTIONS.REGISTER_USER.ATTEMPT,
       payload: payload

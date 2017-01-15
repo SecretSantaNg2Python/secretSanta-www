@@ -1,4 +1,4 @@
-<div *ngIf="user.id">
-	Welcome {{user.username}}
+<div *ngIf="(session | async)?.user?.id">
+	Welcome {{ (session | async)?.user?.username }}
 </div>
 <img src="/assets/img/funnySanta.jpg" class="funnySanta"/>

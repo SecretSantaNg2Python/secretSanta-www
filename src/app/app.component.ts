@@ -39,6 +39,9 @@ export class AppComponent implements OnInit {
   }
 
   onSignOut(){
-    console.log('sign out');
+    this._store.dispatch({
+      type: SESSION_ACTIONS.LOGOUT_USER.ATTEMPT,
+      payload: {}
+    });
   }
 }

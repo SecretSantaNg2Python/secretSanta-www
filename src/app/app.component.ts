@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 
 import { Session } from './shared/models/session.interface';
+import { SESSION_ACTIONS } from './shared/reducers/session.reducer';
 
 @Component({
   selector: 'app-root',
   template: `
-    <app-navbar [user]="user" (onSignOut)="onSignOut($event)"></app-navbar>
+    <app-navbar [user]="(session | async)?.user" (onSignOut)="onSignOut($event)"></app-navbar>
     <div>
       <router-outlet></router-outlet>
     </div>
@@ -16,26 +17,25 @@ import { Session } from './shared/models/session.interface';
 })
 export class AppComponent implements OnInit {
   title = 'app works!';
-  user;
+  session;
 
   checkLocalStorage(){
     if (localStorage['Authorization']) return this.getUser();
   }
 
   constructor(private _store: Store<any>){
-    _store.select('session').subscribe((session: Session) => this.user = session.user);
+    this.session = _store.select('session');
   }
 
   getUser(){
-    // need to create this session action
-    // this._store.dispatch({
-    //   type: SESSION_ACTIONS.GET_USER.ATTEMPT,
-    //   payload: { }
-    // });
+    this._store.dispatch({
+      type: SESSION_ACTIONS.GET_USER.ATTEMPT,
+      payload: {}
+    });
   }
 
   ngOnInit(){
-
+    this.checkLocalStorage();
   }
 
   onSignOut(){

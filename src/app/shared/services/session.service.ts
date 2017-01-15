@@ -2,12 +2,19 @@ import { Injectable } from '@angular/core';
 
 import { CommonService } from './common.service';
 import { SESSION_ACTIONS } from '../reducers/session.reducer';
-import { PostParams } from '../models/httpParams.interface';
+import { GetParams, PostParams } from '../models/httpParams.interface';
 
 @Injectable()
 export class SessionService {
 
-  constructor(private commonService: CommonService) { }
+  constructor(private commonService: CommonService) {}
+
+  getUser(payload){
+    // need a get User endpoint that checks the token
+    // let getParams: GetParams = {
+
+    // }
+  }
 
   loginUser(payload: {email: string, password: string}){
     let postParams: PostParams = {

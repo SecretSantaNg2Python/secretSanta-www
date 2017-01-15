@@ -31,7 +31,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 
 // services
 import { QuestionService } from './shared/services/question.service';
-import { HttpWrapperService } from './shared/services/common.service';
+import { HttpWrapperService } from './shared/services/http-wrapper.service';
 import { SessionService } from './shared/services/session.service';
 
 // reducers

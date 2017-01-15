@@ -1,16 +1,16 @@
 /* tslint:disable:no-unused-variable */
 
 import { TestBed, async, inject } from '@angular/core/testing';
-import { CommonService } from './common.service';
+import { HttpWrapperService } from './http-wrapper.service';
 
 describe('Service: Common', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [CommonService]
+      providers: [HttpWrapperService]
     });
   });
 
-  it('should ...', inject([CommonService], (service: CommonService) => {
+  it('should ...', inject([HttpWrapperService], (service: HttpWrapperService) => {
     expect(service).toBeTruthy();
   }));
 });

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { HttpWrapperService } from './common.service';
+import { HttpWrapperService } from './http-wrapper.service';
 import { SESSION_ACTIONS } from '../reducers/session.reducer';
 import { HttpParams } from '../models/httpParams.interface';
 

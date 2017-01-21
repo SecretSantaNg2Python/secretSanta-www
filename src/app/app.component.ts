@@ -16,7 +16,6 @@ import { SESSION_ACTIONS } from './shared/reducers/session.reducer';
   providers:  []
 })
 export class AppComponent implements OnInit {
-  title = 'app works!';
   session;
 
   checkLocalStorage(){

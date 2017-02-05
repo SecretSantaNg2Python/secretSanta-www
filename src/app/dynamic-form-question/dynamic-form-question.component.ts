@@ -3,7 +3,7 @@ import { FormGroup }        from '@angular/forms';
 import { QuestionBase }     from '../shared/question-base';
 
 @Component({
-  selector: 'df-question',
+  selector: 'app-question',
   templateUrl: 'dynamic-form-question.component.html'
 })
 

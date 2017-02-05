@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 
-import { Session } from './shared/models/session.interface';
 import { SESSION_ACTIONS } from './shared/reducers/session.reducer';
 
 @Component({
@@ -11,33 +10,35 @@ import { SESSION_ACTIONS } from './shared/reducers/session.reducer';
     <div>
       <router-outlet></router-outlet>
     </div>
-	`,
+  `,
   styleUrls: ['./app.component.css'],
   providers:  []
 })
 export class AppComponent implements OnInit {
   session;
 
-  checkLocalStorage(){
-    if (localStorage['Authorization']) return this.getUser();
+  checkLocalStorage() {
+    if (localStorage['Authorization']) {
+      return this.getUser();
+    }
   }
 
-  constructor(private _store: Store<any>){
+  constructor(private _store: Store<any>) {
     this.session = _store.select('session');
   }
 
-  getUser(){
+  getUser() {
     this._store.dispatch({
       type: SESSION_ACTIONS.GET_USER.ATTEMPT,
       payload: {}
     });
   }
 
-  ngOnInit(){
+  ngOnInit() {
     this.checkLocalStorage();
   }
 
-  onSignOut(){
+  onSignOut() {
     this._store.dispatch({
       type: SESSION_ACTIONS.LOGOUT_USER.ATTEMPT,
       payload: {}

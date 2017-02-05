@@ -14,17 +14,17 @@ export class RegistrationComponent implements OnInit {
   questions: any[];
 
   constructor(
-    private questionService: QuestionService, 
+    private questionService: QuestionService,
     private _store: Store<any>,
     private router: Router
   ) {
-	  this.questions = questionService.getRegistrationQuestions();
+    this.questions = questionService.getRegistrationQuestions();
   }
 
   ngOnInit() {
   }
 
-  onSubmitRegistrationForm(payload){
+  onSubmitRegistrationForm(payload) {
     this._store.dispatch({
       type: SESSION_ACTIONS.REGISTER_USER.ATTEMPT,
       payload: payload

@@ -17,17 +17,16 @@ export class LoginComponent implements OnInit {
     private _store: Store<any>,
     private router: Router
   ) {
-	  this.questions = questionService.getLoginQuestions();
+    this.questions = questionService.getLoginQuestions();
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
-  onSubmitLoginForm(payload){
+  onSubmitLoginForm(payload) {
     this._store.dispatch({
       type: SESSION_ACTIONS.LOGIN_USER.ATTEMPT,
       payload: payload
-    })
+    });
     setTimeout(() => this.router.navigate(['/']), 2000);
   }
 

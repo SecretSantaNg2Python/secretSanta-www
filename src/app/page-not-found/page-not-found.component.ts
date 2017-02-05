@@ -17,7 +17,7 @@ export class PageNotFoundComponent implements OnInit {
 
   ngOnInit() {
     // This sends the user back to the root after 2 seconds
-    setTimeout(()=> this.router.navigate(['/']), 2000);
+    setTimeout(() => this.router.navigate(['/']), 2000);
   }
 
 }

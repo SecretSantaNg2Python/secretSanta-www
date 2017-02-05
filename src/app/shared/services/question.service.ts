@@ -1,6 +1,5 @@
 import { Injectable }       from '@angular/core';
 
-import { DropdownQuestion } from '../question-dropdown';
 import { QuestionBase }     from '../question-base';
 import { TextboxQuestion }  from '../question-textbox';
 
@@ -13,9 +12,9 @@ export class QuestionService {
       new TextboxQuestion({
         key: 'username',
         label: 'Username',
-   	   	required: true,
+        required: true,
         order: 1
-   	  }),
+      }),
       new TextboxQuestion({
         key: 'email',
         label: 'Email',

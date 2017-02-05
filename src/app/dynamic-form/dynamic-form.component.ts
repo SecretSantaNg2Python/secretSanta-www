@@ -5,7 +5,7 @@ import { QuestionBase }  from '../shared/question-base';
 import { QuestionControlService } from '../shared/services/question-control.service';
 
 @Component({
-  selector: 'dynamic-form',
+  selector: 'app-dynamic-form',
   templateUrl: 'dynamic-form.component.html',
   providers: [ QuestionControlService ]
 })
@@ -13,7 +13,7 @@ import { QuestionControlService } from '../shared/services/question-control.serv
 export class DynamicFormComponent implements OnInit {
   @Input() questions: QuestionBase<any>[] = [];
   @Output() onSubmit = new EventEmitter();
-  
+
   form: FormGroup;
 
   constructor(private qcs: QuestionControlService) {  }

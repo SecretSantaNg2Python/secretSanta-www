@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Observable} from 'rxjs/Observable'
-import { Session } from '../shared/models/session.interface';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -9,7 +8,6 @@ import { Session } from '../shared/models/session.interface';
 })
 export class HomeComponent implements OnInit {
   public session;
-  private subscription;
   constructor(private _store: Store<any>) {
     this.session = _store.select('session');
   }

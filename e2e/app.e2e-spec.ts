@@ -1,10 +1,10 @@
-import { SSAppPage } from './app.po';
+import { SsappPage } from './app.po';
 
 describe('ssapp App', function() {
-  let page: SSAppPage;
+  let page: SsappPage;
 
   beforeEach(() => {
-    page = new SSAppPage();
+    page = new SsappPage();
   });
 
   it('should display message saying app works', () => {

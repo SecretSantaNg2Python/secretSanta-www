@@ -7,7 +7,7 @@ export const ERROR_ACTIONS = {
   REMOVE_ERROR: 'REMOVE_ERROR'
 };
 
-export const errorReducer: ActionReducer<Error[]> = (state: Error[] = [], {type, payload}: Action) => {
+export function errorReducer(state: Error[] = [], {type, payload}: Action) {
 
   switch (type) {
 

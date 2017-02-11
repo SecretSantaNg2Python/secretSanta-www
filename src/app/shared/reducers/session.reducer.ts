@@ -28,7 +28,7 @@ const defaultSession: Session = {
   user: {}
 };
 
-export const sessionReducer: ActionReducer<Session> = (state: Session = defaultSession, {type, payload}: Action) => {
+export function sessionReducer(state: Session = defaultSession, {type, payload}: Action) {
   console.log('action', type, payload);
   switch (type) {
     case SESSION_ACTIONS.GET_USER.SUCCESS:

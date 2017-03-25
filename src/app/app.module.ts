@@ -2,9 +2,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { MaterialModule } from '@angular/material';		
+import { MaterialModule } from '@angular/material';
 import 'hammerjs';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // ngrx		
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { StoreModule } from '@ngrx/store';
@@ -50,6 +50,7 @@ import { SessionEffects } from './shared/effects/session.effects';
     HomeComponent
   ],
   imports: [
+    BrowserAnimationsModule,
     EffectsModule.run(SessionEffects),
     StoreModule.provideStore({
       error: errorReducer,
